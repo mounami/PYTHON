@@ -2,7 +2,7 @@ import requests
 
 print("🌤️ WEATHER APP 🌤️\n")
 
-api ="6d5672238f7557007cef2f02f4ee387a"
+# api ="123"
 
 def get_weather(city, api_key):
     """Get weather data for a city"""
