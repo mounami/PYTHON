@@ -1,0 +1,85 @@
+I need a Python class to manage offer card JSON data with full CRUD operations. 
+
+Requirements:
+
+1. Imports and Type Hints:
+   - Use 'import copy' for deep copying data
+   - Use 'from typing import Any, List, Union' for proper type hints
+   - Use 'import json' for JSON operations
+   - All methods should have proper type annotations
+
+2. Create a class called OfferCardManager that can:
+   - Initialize with a dictionary/JSON object
+   - Update any key-value pair using dot notation path (e.g., 'discount.value')
+   - Delete any key-value pair or entire component blocks
+   - Add new key-value pairs to objects
+   - Append items to arrays
+   - Get values at specific paths
+   - Maintain history for undo operations using copy.deepcopy()
+   - Save/load from JSON files
+
+3. Path handling with Union types:
+   - Accept path as Union[str, List[str]] - either 'discount.value' or ['discount', 'value']
+   - Handle nested objects and arrays
+   - Support array indexing (e.g., 'categories.0' for first item)
+   - Convert string paths to list internally using split('.')
+
+4. Method signatures should look like:
+   - def __init__(self, offer_data: dict)
+   - def update_value(self, path: Union[str, List[str]], new_value: Any) -> dict
+   - def delete_key(self, path: Union[str, List[str]]) -> dict
+   - def add_key(self, path: Union[str, List[str]], key: str, value: Any) -> dict
+   - def append_to_array(self, path: Union[str, List[str]], value: Any) -> dict
+   - def get_value(self, path: Union[str, List[str]]) -> Any
+   - def undo(self) -> dict
+   - def get_json(self, indent: int = 2) -> str
+   - def save_to_file(self, filename: str)
+   - @classmethod load_from_file(cls, filename: str)
+
+5. Data integrity:
+   - Use copy.deepcopy() when initializing to avoid reference issues
+   - Use copy.deepcopy() when saving to history before each mutation
+   - Ensure original data is never modified accidentally
+
+6. Use this example JSON structure for demonstration:
+{
+  "offerId": "OFFER_2024_001",
+  "title": "Summer Sale",
+  "description": "Get amazing discounts on selected items",
+  "discount": {
+    "type": "percentage",
+    "value": 30,
+    "maxAmount": 100
+  },
+  "validity": {
+    "startDate": "2024-06-01",
+    "endDate": "2024-08-31"
+  },
+  "conditions": {
+    "minPurchase": 50,
+    "applicableCategories": ["electronics", "fashion", "home"]
+  },
+  "active": true
+}
+
+7. Include a comprehensive example demonstration showing:
+   - Updating simple values (both string and list path formats)
+   - Updating nested values
+   - Deleting key-value pairs
+   - Deleting entire component blocks
+   - Adding new properties
+   - Appending to arrays
+   - Getting specific values with Any return type
+   - Undo operation
+   - Saving to file
+
+8. Add clear docstrings with:
+   - Args section showing Union[str, List[str]] for paths
+   - Returns section showing return types (dict, Any, etc.)
+   - Example usage in docstring
+
+9. The _save_to_history() private method should use copy.deepcopy() to store snapshots.
+
+10. Make the code production-ready with proper error handling.
+
+Please provide the complete Python code with all these imports and type hints properly used.

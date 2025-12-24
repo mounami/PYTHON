@@ -1,0 +1,19 @@
+{
+    "budget": 0,
+    "transaction": [],
+    "transactions": [
+        {
+            "date": "2025-11-23 18:55",
+            "type": "income",
+            "amount": 1000000.0,
+            "description": "Income"
+        },
+        {
+            "date": "2025-11-23 18:55",
+            "type": "expense",
+            "amount": 2103.0,
+            "description": "expense"
+        }
+    ],
+    "balance": 997897.0
+}
